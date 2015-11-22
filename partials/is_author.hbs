@@ -1,0 +1,54 @@
+{{#foreach posts}}
+{{#is "author"}}
+{{#contentFor "meta"}}
+        <meta property="og:title" content="{{title}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="{{excerpt words="15"}}" />
+        <meta property="og:url" content="{{url}}" />
+        <meta property="og:image" content="{{image}}" />
+        <meta property="og:image:width" content="100" />
+         <meta property="og:image:height" content="100" />
+    {{/contentFor}}
+<article class="{{post_class}}">
+   <div class="entry-featured">
+      <a href="{{url}}" target="_blank"><img width="338" height="194" src="{{image}}" class="" alt="{{title}}"></a>
+   </div>
+   <div class="entry-wrap">
+      <header class="entry-header">
+         <h2 class="entry-title">
+            <!-- Limiting the Title to 50 characters to fit within Post Box -->
+            <a href="{{url}}" target="_blank">{{title}}</a>
+         </h2>
+      </header>
+        <ul class="button-group radius">
+        {{#foreach tags}}
+    <li><a href="{{url}}" class="tiny button success" id="tags">{{name}}</a></li>
+    {{/foreach}}
+  </ul>
+      <div class="entry-content excerpt">
+         <!-- 1s- Date in format Month Date,Year -->
+         <div id="excerpt-date">
+            <time datetime="{{date format="DD-MM-YYYY"}}">{{date published_at}}</time> 
+         </div>
+         <!-- 1e- of Date in format Month Date,Year -->
+         <!-- 2s- Post Body Content limited to 100 Characters and '...' -->
+         <div id="excerpt-text">{{excerpt words="15"}} </div>
+         <!-- 2e- Post Body Content limited to 100 Characters and '...' -->
+         <!-- 3s- Share Part -->
+         <div class="share-category">
+            <div id="category">
+               By {{author}}
+            </div>
+            <ul class="right-sharing">   
+              <li> <a target="_blank" href="http://www.facebook.com/sharer.php?t={{title}}&u={{url}}" style="opacity: 1;">
+               <img src="http://www.webable.digital/bable/wp-content/uploads/icons/1431276849_facebook.svg" width="20" height="20"> </a></li>
+              <li> <a target="_blank" href="https://www.linkedin.com/cws/share?url={{url}}"  style="opacity: 1;">
+               <img src="http://www.webable.digital/bable/wp-content/uploads/icons/1431279855_UberCons_SocialPack_LinkedIn.svg" width="20" height="20"></a> </li>
+              <li> <a href="https://twitter.com/intent/tweet?text={{title}}&url={{url}}" target="_blank" style="opacity: 1;"><img src="http://www.webable.digital/bable/wp-content/uploads/icons/1431278738_circle-twitter.svg" width="20" height="20"> </a> </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+</article>
+{{/is}}
+{{/foreach}}

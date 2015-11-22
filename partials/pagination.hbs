@@ -1,0 +1,14 @@
+{{!-- This file is reponsible for outputting the pagination links --}}
+
+
+<br>
+<ul class="pagination">
+   {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}">&larr; Newer Posts</a>
+    {{/if}}
+    <span class="page-number current">Page {{page}} of {{pages}}</span>
+    {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">Older Posts &rarr;</a>
+    {{/if}}
+
+</ul>

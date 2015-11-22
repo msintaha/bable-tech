@@ -1,0 +1,87 @@
+{{!< default}}
+<script type="text/javascript">
+ if(document.location.pathname !== '/'){
+    $('.slideUp').css("background-color", "transparent");
+       var headerHeight = $('.entry-featured.post').height();
+    $(window).on('scroll', {
+            previousTop: 0
+        },
+        function() {
+            var currentTop = $(window).scrollTop();
+            if (currentTop > 100) {
+                $('.slideUp').addClass('darkblue');
+            } else {
+                $('.slideUp').removeClass('darkblue');
+            }
+
+        }
+    );       
+  }
+</script>
+{{#post}}
+
+{{#contentFor "meta"}}
+        <meta property="og:title" content="{{title}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:description" content="{{excerpt words="15"}}" />
+        <meta property="og:url" content="{{url}}" />
+        <meta property="og:image" content="{{image}}" />
+        <meta property="og:image:width" content="100" />
+         <meta property="og:image:height" content="100" />
+    {{/contentFor}}
+
+
+
+<div class="entry-featured post" style="background-image: linear-gradient(to right, rgba(13,48,107,0.65), rgba(13,48,107,0.65)), url('{{image}}')">
+   <h2 class="single-article">
+      <br>
+      <span id="title-single"><b>{{title}}</b></span><br> 
+      <div class="header-avatar" style="border-radius: 100%;">
+         {{#if author.image}}
+         <img src="{{author.image}}" width="25" height="25" alt="{{author.name}}" class="avatar avatar-25 wp-user-avatar wp-user-avatar-25 alignnone photo">
+         {{/if}}
+         <span id="post-info"> Written by  {{author.name}} on <time datetime="{{date format="DD-MM-YYYY"}}">{{date published_at}}</time></span>
+      </div>
+      <br>
+   </h2>
+   <br>
+   <div class="post-nav">
+      <span class="post-navigation left">
+      {{#prev_post}}
+      <a href="{{url}}">«</a>
+      {{/prev_post}}
+      </span> <span class="post-navigation right">
+      {{#next_post}} 
+      <a href="{{url}}">» </a>
+      {{/next_post}}
+      </span>
+   </div>
+</div>
+<br><div class="entry-wrap">
+   <div class="row">
+      <div class="medium-8 columns"><br>
+{{content}}</div>
+      <div class="medium-4 columns"><br>
+
+     <form>   
+      <div class="row collapse postfix-round">
+        <div class="small-9 columns">
+          <input type="text" placeholder="Search an article" class="searchbox">
+        </div>
+       <input type="submit" id="submit" class="search-submit" value="">
+      </div>
+      </form>
+      </div>
+   </div>
+   <div class="row">
+      <div class="medium-12 columns">{{> "comments"}}</div>
+   </div>
+</div>
+
+
+</div>
+
+ {{> "subscribe"}}
+{{/post}}
+<!-- {{> featured}}-->
+{{> "footer"}}

@@ -1,0 +1,23 @@
+{{!< default}}
+{{#author}}
+<div id="author-div">
+<div class="row">
+<h6 class="h-about-the-author">About the Author</h6>
+  <div class="small-4 columns"><img class="thumbnail" src="{{image}}"></div>
+  <div class="small-8 columns"><h4 class="h-author mtn">{{name}}</h4>
+  <a href="{{website}}">{{website}}</a>
+  	<p class="p-author mbn">{{bio}}</p>
+  </div>
+</div>
+</div>
+{{/author}}
+
+  <div id="case-studies" class="work_pic">
+         <div class="row full-width collapse">
+           {{> "is_author"}}
+  		</div>
+  		
+  </div>
+
+<br><br>
+{{> "footer"}}

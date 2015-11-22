@@ -1,0 +1,57 @@
+{{!-- This file is reponsible for outputting the header bar with links to
+      pages defined in settings --}}
+<script type="text/javascript">
+  $("#subscribeBtn").click(function() {
+    alert('bla');
+    $(this).toggleClass('active');
+    $('.overlay1').toggleClass('open');
+    $('body').toggleClass("overflow-hidden");
+
+});
+</script>
+<div class="slideUp">
+      <nav class="top-bar data-topbar row header">
+         <div id="logo" class="left logo">
+            <div class="w-logo"><a href="/"> <img src="{{@blog.logo}}" /></a></div>
+         </div>
+       <!--   <div id="subscribeBtn">
+           <span >subscribe</span>
+         </div> -->
+         <div class="right">
+
+            <div id="toggle" class="button_container"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+         </div>
+         <div id="overlay1" class="overlay1">
+           <div class="outer-subscribe">
+             {{> "subscribe"}}
+           </div>
+         </div>
+         <div id="overlay2" class="overlay2">
+            <div class="left hide"><a href="/"></a></div>
+            <nav class="overlay-menu">
+              {{#if @blog.navigation}}
+                {{#foreach navigation}}
+                  <ul>
+                    <li> <a href="">{{label}}</a></li>
+                     <li> <a href="http://webable.digital/work">Work</a></li>
+                      <li> <a href="http://webable.digital/about">About</a></li>
+                       <li> <a href="http://webable.digital/bable">Bable Marketing</a></li>
+                        <li> <a href="http://webable.digital/capabilities">Capabilities</a></li>
+                        <li> <a href="http://webable.digital/join">Join the Team</a></li>
+                  </ul>
+                {{/foreach}}
+              {{/if}}
+            </nav>
+            <div class="social-icons-menu">
+               <ul class="text-align">
+                  <li><a href="https://twitter.com/WebAbleDigital" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/3544530?trk=tyah&amp;trkInfo=clickedVertical%3Acompany%2Cidx%3A2-1-2%2CtarId%3A1432888439756%2Ctas%3Awebable" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                  <li><a href="https://plus.google.com/+WebableBd/videos" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a href="https://www.facebook.com/WebAble?fref=ts" target="_blank"> <i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://instagram.com/webabledigital/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.pinterest.com/WebAbleDigital/" target="_blank"><i class="fa fa-pinterest"></i></a></li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+   </div>

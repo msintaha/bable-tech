@@ -1,0 +1,17 @@
+    <!--featured posts-->
+<div class="popular-on-bable"><h4>Check These Out <br><span class="readthisarrow"> ↓ </span></h4>
+<div class="popularperposts">
+  {{#foreach posts}}
+{{#if featured}}
+<div class="module lr" style="background-image: linear-gradient(to bottom, rgba(13,48,107,0.6), rgba(13,48,107,0.6)), url('{{image}}')">
+   <a href="{{url}}" class="popularpostlink">
+   <b><span class="popular-title">{{title}}</span></b><br>
+   <span id="post-info"> by  {{author.name}} on <time datetime="{{date format="DD-MM-YYYY"}}">{{date published_at}}</time></span>
+   </a>
+</div>
+{{/if}}
+{{/foreach}}
+</div>
+      
+
+
